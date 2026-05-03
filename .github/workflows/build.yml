@@ -51,11 +51,12 @@ jobs:
             type=raw,value=latest
             type=sha
 
-      - name: Build and push Docker image
+      - name: Build and push container image
         id: build-and-push
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./Containerfile   # <-- Explicitly point to Containerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
