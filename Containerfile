@@ -1,6 +1,6 @@
 FROM ghcr.io/rulentwave/gentoo-prefix-builder@sha256:300924deec4550e310836cf4ffd29a22d06f6b7a9eb0c6885328414defe70d6f as stage3
 
-FROM registry.fedoraproject.org/fedora:44
+FROM registry.fedoraproject.org/fedora@sha256:71dbd9e6ab4b9266593a0f8d9cb095ed7f4f4993dd569bc0c88a0ce2aa59f9d5
 
 ARG PREFIX=/usr/lib/gentoo-prefix
 
