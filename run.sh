@@ -14,8 +14,12 @@ echo "Copying overrides"
 cd /overrides
 find . -type f -print0 | rsync -0 -avP --files-from=- . $PREFIX
 
+# Install updates
 emerge --sync
 emerge -uDN world
+
+# Remove setuid and setgid
+find $PREFIX -type f -perm /6000 -exec chmod ug-s {} +
 
 if [ "$MODE" == "tar" ]; then
 	echo "Creating tar archive..."
